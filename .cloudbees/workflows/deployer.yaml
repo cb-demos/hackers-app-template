@@ -23,6 +23,9 @@ jobs:
       artifactVersion: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-api']['${{ inputs.dockerUser }}/hackers-api'].version }}
       artifact-id: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-api']['${{ inputs.dockerUser }}/hackers-api'].id }}
       environment: ${{ inputs.environment }}
+      hostname: hackers-api.${{ inputs.environment }}.preview.cb-demos.io
+      appName: hackers-api
+      repo: TARGET_ORG/PROJECT_NAME-api
     secrets: inherit
     vars: inherit
   hackers-auth:
@@ -32,6 +35,9 @@ jobs:
       artifactVersion: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-auth']['${{ inputs.dockerUser }}/hackers-auth'].version }}
       artifact-id: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-auth']['${{ inputs.dockerUser }}/hackers-auth'].id }}
       environment: ${{ inputs.environment }}
+      hostname: hackers-auth.${{ inputs.environment }}.preview.cb-demos.io
+      appName: hackers-auth
+      repo: TARGET_ORG/PROJECT_NAME-auth
     secrets: inherit
     vars: inherit
   hackers-web:
@@ -41,5 +47,8 @@ jobs:
       artifactVersion: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-web']['${{ inputs.dockerUser }}/hackers-web'].version }}
       artifact-id: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-web']['${{ inputs.dockerUser }}/hackers-web'].id }}
       environment: ${{ inputs.environment }}
+      hostname: hackers-web.${{ inputs.environment }}.preview.cb-demos.io
+      appName: hackers-web
+      repo: TARGET_ORG/PROJECT_NAME-web
     secrets: inherit
     vars: inherit

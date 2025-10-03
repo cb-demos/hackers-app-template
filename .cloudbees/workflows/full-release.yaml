@@ -322,6 +322,7 @@ jobs:
     with:
       manifest: ${{ inputs.manifest }}
       environment: PROJECT_NAME-qa
+      dockerUser: ${{ vars.DOCKERHUB_USER }}
     secrets: inherit
     vars: inherit
   enable-feature-flags-qa:
@@ -656,6 +657,7 @@ jobs:
     with:
       manifest: ${{ inputs.manifest }}
       environment: PROJECT_NAME-staging
+      dockerUser: ${{ vars.DOCKERHUB_USER }}
     secrets: inherit
     vars: inherit
   enable-feature-flags-staging:
@@ -1019,6 +1021,7 @@ jobs:
     with:
       manifest: ${{ inputs.manifest }}
       environment: PROJECT_NAME-prod
+      dockerUser: ${{ vars.DOCKERHUB_USER }}
     secrets: inherit
     vars: inherit
   run-smoke-tests:

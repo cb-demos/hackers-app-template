@@ -10,32 +10,36 @@ on:
       manifest:
         type: string
         required: true
+      dockerUser:
+        type: string
+        required: false
+        default: cloudbeesdemo
 
 jobs:
   hackers-api:
-    if: ${{ fromJSON(inputs.manifest)['hackers-api']['hackers-api'].deploy }}
-    uses: TARGET_ORG/PROJECT_NAME-api/.cloudbees/workflows/deploy.yaml
+    if: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-api']['${{ inputs.dockerUser }}/hackers-api'].deploy }}
+    uses: TARGET_ORG/PROJECT_NAME-workflows/helm-deploy.yaml
     with:
-      artifactVersion: ${{ fromJSON(inputs.manifest)['hackers-api']['hackers-api'].version }}
-      artifact-id: ${{ fromJSON(inputs.manifest)['hackers-api']['hackers-api'].id }}
+      artifactVersion: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-api']['${{ inputs.dockerUser }}/hackers-api'].version }}
+      artifact-id: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-api']['${{ inputs.dockerUser }}/hackers-api'].id }}
       environment: ${{ inputs.environment }}
     secrets: inherit
     vars: inherit
   hackers-auth:
-    if: ${{ fromJSON(inputs.manifest)['hackers-auth']['hackers-auth'].deploy }}
-    uses: TARGET_ORG/PROJECT_NAME-auth/.cloudbees/workflows/deploy.yaml
+    if: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-auth']['${{ inputs.dockerUser }}/hackers-auth'].deploy }}
+    uses: TARGET_ORG/PROJECT_NAME-workflows/helm-deploy.yaml
     with:
-      artifactVersion: ${{ fromJSON(inputs.manifest)['hackers-auth']['hackers-auth'].version }}
-      artifact-id: ${{ fromJSON(inputs.manifest)['hackers-auth']['hackers-auth'].id }}
+      artifactVersion: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-auth']['${{ inputs.dockerUser }}/hackers-auth'].version }}
+      artifact-id: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-auth']['${{ inputs.dockerUser }}/hackers-auth'].id }}
       environment: ${{ inputs.environment }}
     secrets: inherit
     vars: inherit
   hackers-web:
-    if: ${{ fromJSON(inputs.manifest)['hackers-web']['hackers-web'].deploy }}
-    uses: TARGET_ORG/PROJECT_NAME-web/.cloudbees/workflows/deploy.yaml
+    if: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-web']['${{ inputs.dockerUser }}/hackers-web'].deploy }}
+    uses: TARGET_ORG/PROJECT_NAME-workflows/helm-deploy.yaml
     with:
-      artifactVersion: ${{ fromJSON(inputs.manifest)['hackers-web']['hackers-web'].version }}
-      artifact-id: ${{ fromJSON(inputs.manifest)['hackers-web']['hackers-web'].id }}
+      artifactVersion: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-web']['${{ inputs.dockerUser }}/hackers-web'].version }}
+      artifact-id: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-web']['${{ inputs.dockerUser }}/hackers-web'].id }}
       environment: ${{ inputs.environment }}
     secrets: inherit
     vars: inherit

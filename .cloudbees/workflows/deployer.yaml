@@ -19,9 +19,6 @@ jobs:
       artifactVersion: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-api']['cloudbeesdemo/PROJECT_NAME-api'].version }}
       artifact-id: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-api']['cloudbeesdemo/PROJECT_NAME-api'].id }}
       environment: ${{ inputs.environment }}
-      hostname: PROJECT_NAME-api.${{ inputs.environment }}.preview.cb-demos.io
-      appName: PROJECT_NAME-api
-      repo: TARGET_ORG/PROJECT_NAME-api
     secrets: inherit
     vars: inherit
   hackers-auth:
@@ -31,9 +28,6 @@ jobs:
       artifactVersion: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-auth']['cloudbeesdemo/PROJECT_NAME-auth'].version }}
       artifact-id: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-auth']['cloudbeesdemo/PROJECT_NAME-auth'].id }}
       environment: ${{ inputs.environment }}
-      hostname: PROJECT_NAME-auth.${{ inputs.environment }}.preview.cb-demos.io
-      appName: PROJECT_NAME-auth
-      repo: TARGET_ORG/PROJECT_NAME-auth
     secrets: inherit
     vars: inherit
   hackers-web:
@@ -43,8 +37,5 @@ jobs:
       artifactVersion: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-web']['cloudbeesdemo/PROJECT_NAME-web'].version }}
       artifact-id: ${{ fromJSON(inputs.manifest)['PROJECT_NAME-web']['cloudbeesdemo/PROJECT_NAME-web'].id }}
       environment: ${{ inputs.environment }}
-      hostname: PROJECT_NAME-web.${{ inputs.environment }}.preview.cb-demos.io
-      appName: PROJECT_NAME-web
-      repo: TARGET_ORG/PROJECT_NAME-web
     secrets: inherit
     vars: inherit

@@ -334,7 +334,7 @@ jobs:
         id: config-update
         with:
           token: ${{ secrets.UNIFY_TOKEN }}
-          org-id: ${{ cloudbees.org.id }}
+          org-id: "REPLACE_ME_ORG_ID"
           application-name: PROJECT_NAME-app
           environment-name: PROJECT_NAME-qa
           flag-name: default.score
@@ -668,7 +668,7 @@ jobs:
         id: config-update
         with:
           token: ${{ secrets.UNIFY_TOKEN }}
-          org-id: ${{ cloudbees.org.id }}
+          org-id: "REPLACE_ME_ORG_ID"
           application-name: PROJECT_NAME-app
           environment-name: PROJECT_NAME-staging
           flag-name: default.score
@@ -1213,7 +1213,7 @@ jobs:
         id: config-update
         with:
           token: ${{ secrets.UNIFY_TOKEN }}
-          org-id: ${{ cloudbees.org.id }}
+          org-id: "REPLACE_ME_ORG_ID"
           application-name: PROJECT_NAME-app
           environment-name: PROJECT_NAME-prod
           flag-name: default.score
